@@ -19,6 +19,7 @@ export default {
   },
 
   bootstrap(app) {
+    
     app.injectContentManagerComponent('listView', 'actions', {
       name: `${pluginId}-alerts`,
       Component: Alerts,
@@ -28,6 +29,18 @@ export default {
       Component: Import,
     });
     app.injectContentManagerComponent('listView', 'actions', {
+      name: `${pluginId}-export`,
+      Component: Export,
+    });
+    app.injectContentManagerComponent('editView', 'right-links', {
+      name: `${pluginId}-alerts`,
+      Component: Alerts,
+    });
+    app.injectContentManagerComponent('editView', 'right-links', {
+      name: `${pluginId}-import`,
+      Component: Import,
+    });
+    app.injectContentManagerComponent('editView', 'right-links', {
       name: `${pluginId}-export`,
       Component: Export,
     });

@@ -1,4 +1,5 @@
 const { isEmpty, merge } = require('lodash/fp');
+const { isArraySafe } = require('../../../libs/arrays');
 
 const { convertToCsv, convertToJson } = require('./converters');
 
@@ -26,6 +27,10 @@ const dataConverterConfigs = {
  * @returns
  */
 const exportData = (entries, options) => {
+  if (!isArraySafe(entries)) {
+    entries = [entries];
+  }
+  
   const converter = getConverter(options.dataFormat);
 
   const convertedData = converter.convertEntries(entries, options);
